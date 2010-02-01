@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Site Build" default="build" basedir=".">	
+	
+	<target name="init" depends="-load.properties" description="Some basic itilization">
+		<mkdir dir="${build.dir}"/>
+	</target>
+
+	<target name="-load.properties" description="Some basic itilization">
+		<property file="ant.properties"/>
+	</target>
+		
+	<target name="build" depends="init"
+            description="Do a full build of all components">
+		
+		<apply executable="lessc" parallel="false">
+			<fileset dir="${src.dir}/less" includes="*.less"/>
+			<srcfile />
+			<mapper type="glob" from="*.less" to="${basedir}/${build.dir}/*.css" />
+			<targetfile />
+		</apply>
+				
+		<copy todir="${www.css}" verbose="true">
+			<fileset dir="${build.dir}" includes="*.css"/>
+			<mapper type="glob" from="*.css" to="*.css"/>
+		</copy>
+	</target>
+	
+	<target name="clean" depends="-load.properties"
+	        description="Clean all generated files">
+		<delete failonerror="false" verbose="true">
+			<fileset dir="${www.css}" includes="*.css"/>
+		</delete>
+		<delete dir="${build.dir}" verbose="true"/>
+	</target>
+</project>
