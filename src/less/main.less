@@ -1,0 +1,151 @@
+/*------------------------------------------------------------------------------
+    File: src/less/main.less
+ Project: CS Society
+      By: Tim Oram [t.oram@mitmaro.ca]
+ Website: http://www.mitmaro.ca/
+   Email: mmtiny@mitmaro.ca
+------------------------------------------------------------------------------*/
+
+html {
+	background:#000 url('/images/bg/main.jpg');
+}
+
+#doc {
+	width:900px;
+	border:1px solid #999;
+	margin: 15px auto 15px auto;
+}
+
+#hd {
+	font-size:182%;
+	text-align:center;
+	border-bottom:1px solid #999;
+	color:#fff;
+	background:#000 url('/images/bg/site_header.png') no-repeat center top;
+	height:80px;
+	padding-top:6px;
+	
+	a {
+		border:0px solid #000;
+		margin-top:6px;
+		display:block;
+		text-align:right;
+		padding-right:15px;
+	}
+}
+
+#bd {
+	background:#fff url('/images/bg/content.jpg');
+	padding: 15px 25px;
+	
+	.date {
+		font-size:1em;
+		font-weight:bold;
+		text-align:right;
+	}
+	
+	h1 {
+		font-size:167%;
+		margin:5px 0 25px 0;
+		text-align:left;
+		font-weight:bold;
+	}
+	
+	h2 {
+		border-bottom:1px solid #666;
+		font-size:131%;
+		margin:0 0 10px 0;
+		padding:0;
+		font-variant:small-caps;
+		font-weight:bold;
+	}
+
+	h3 {
+		border-bottom:1px solid #c0c0c0;
+		border-top:1px solid #ccc;
+		margin:10px;
+		padding:3px;
+		font-size:116%;
+	}
+	
+	p {
+		font-family:Helvetica,Arial,FreeSans,sans-serif;
+		line-height:1.6em;
+		text-align:justify;
+		text-indent:20px;
+		padding:3px 10px;
+	}	
+}
+
+
+#nav {
+	padding:3px 5px;
+	color:#fff;
+	height:24px;
+	text-align:right;
+	background:#000 url('/images/bg/nav.jpg') no-repeat right top;
+	border-bottom:2px solid #000;
+	
+	ul {
+		margin: 0;
+		padding: 0;
+		float:left;
+		width:100%;
+		list-style:none;
+		
+		li {
+			display: inline;
+			
+			a {
+				font-size:116%;
+				text-decoration:none;
+				font-variant: small-caps;
+				display:inline-block;
+				margin-top:4px;
+				padding: 0 20px;
+				color:#fff;
+				border: 1px solid #666;
+			}
+			a:hover {
+				border-bottom: 1px solid #ccc;
+			}
+		}
+		
+	}
+}
+
+
+
+#ft {
+	font-size:85%;
+	border-top:1px solid #999;
+	padding:5px;
+	font-family:Lucida Console,Monaco,monospace;
+	background:#000 url('/images/bg/footer.png') repeat-x;
+	color:#ccc;
+
+	div.author {
+		text-align:left;
+		float:left;
+		width:175px;
+		
+		a {
+			color:#666;
+			text-decoration:none;
+		}
+	}
+	
+	div.cr {
+		text-align:center;
+		margin: auto;
+		width:400px;
+	}
+	
+	div.time {
+		text-align:right;
+		float:right;
+		width:175px;
+	}
+	
+}
+
