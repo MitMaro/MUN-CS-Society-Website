@@ -1,0 +1,9 @@
+<div id="nav">
+	<ul>
+		<li><a href="{$.config.site_path}index.php">News</a></li>
+		<li><a href="{$.config.site_path}executive.php">Executive</a></li>
+		<li><a href="{$.config.site_path}forums/index.php">Forums</a></li>
+		<li><a href="{$.config.site_path}contact.php">Contact</a></li>
+		<li><a href="{$.config.site_path}reference.php">Reference</a></li>
+	</ul>
+</div>

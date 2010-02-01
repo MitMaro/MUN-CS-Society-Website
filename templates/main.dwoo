@@ -1,0 +1,16 @@
+{include 'pieces/doctype'}
+<head>
+<title>Memorial University of Newfoundland Computer Science Society</title>
+{include 'pieces/head'}
+</head>
+<body>
+<div id='doc'>
+	{include 'pieces/logo'}
+	{include 'pieces/nav'}
+	<div id="bd">
+		{$content}
+	</div>
+	{include 'pieces/footer'}
+</div>
+</body>
+</html>
