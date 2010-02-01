@@ -10,6 +10,8 @@
 ------------------------------------------------------------------------------*/
 
 /*| basic configuration |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|*/
+// script start time with micro seconds
+$_SERVER['SCRIPT_TIME_MICRO'] = microtime(true);
 
 // include the configuration file
 require 'config.php';

@@ -3,9 +3,11 @@
 		 <a href="http://www.mitmaro.ca">Site By: MitMaro</a>
 	</div>
 	<div class="time">
-		Generation Time: 0.1337
+		Generation Time {math "(a-$.server.SCRIPT_TIME_MICRO)" "%01.4f" a=microtime(true)}s
 	</div>
 	<div class="cr">
-		Copyright 2010; MUN CS Society; All Rights Reserved
+		<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/ca/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/ca/80x15.png" />
+		</a>
 	</div>
 </div>

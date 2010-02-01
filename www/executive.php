@@ -1,6 +1,6 @@
-<?php
+<?php 
 /*------------------------------------------------------------------------------
-    File: www/index.php
+    File: www/executive.php
  Project: CS Society
       By: Tim Oram [t.oram@mitmaro.ca]
  Website: http://www.mitmaro.ca/
@@ -12,8 +12,8 @@ $tpl = TemplateEngine::templateFromFile('main');
 
 $data = array(
 	'page' => array(
-		'title' => 'News and Updates'
+		'title' => 'Executive'
 	),
-	'content' => TemplateEngine::get(TemplateEngine::templateFromFile('content/news'))
+	'content' => TemplateEngine::get(TemplateEngine::templateFromFile('content/executive'))
 );
 TemplateEngine::output($tpl, $data);
