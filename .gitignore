@@ -1,0 +1,5 @@
+/build/*
+/www/css/*
+/templates/cache/*
+/templates/compiled/*
+/php/config.php
