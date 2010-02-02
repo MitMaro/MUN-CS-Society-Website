@@ -61,6 +61,10 @@ class TemplateEngine {
 			$cache_time = 0;
 		}
 		
+		if(is_null($compile_id)){
+			$compile_id = str_replace('/', '_', $name);
+		}
+		
 		if(file_exists(self::$template_dir . $name . '.dwoo')){
 		    $file = self::$template_dir . $name . '.dwoo';
 		}
@@ -80,6 +84,11 @@ class TemplateEngine {
 		if(self::$debug_flag){
 			$cache_time = 0;
 		}
+	                                      
+		if(is_null($compile_id)){
+			$compile_id = str_replace('/', '_', $name);
+		}
+		
 		return new Dwoo_Template_String($template, $cache_time, $cache_id,
 		                                $compile_id);
 	}
@@ -122,6 +131,10 @@ class DwooEngine extends Dwoo {
 	                                Dwoo_ITemplate $parentTemplate = null){
 		if($this->debug_flag){
 			$cacheTime = 0;
+		}
+		
+		if(is_null($compileId)){
+			$compileId = str_replace('/', '_', $resourceId);
 		}
 	    
 		if(file_exists($this->template_dir . $resourceId . '.dwoo')){
