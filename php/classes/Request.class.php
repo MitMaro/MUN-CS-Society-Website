@@ -1,11 +1,11 @@
 <?php
 /*------------------------------------------------------------------------------
     File: php/classes/Request.class.php
- Project: MMTiny
+ Project: MUN Computer Science Society Website
  Version: 0.1.0
-      By: Tim Oram [t.oram@mitmaro.ca]
- Website: http://www.mitmaro.ca/
-   Email: mmtiny@mitmaro.ca
+      By: Tim Oram
+ Website: http://society.cs.mun.ca
+   Email: muncssociety@gmail.com
  Purpose: Handles page request. Supports four actions, get, add, update, delete.
 ------------------------------------------------------------------------------*/
 

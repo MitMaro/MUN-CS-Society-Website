@@ -1,12 +1,11 @@
 <?php
 /*------------------------------------------------------------------------------
     File: php/actions/Pages.php
- Project: MUN CS Website
+ Project: MUN Computer Science Society Website
  Version: 0.1.0
-      By: Tim Oram [t.oram@mitmaro.ca]
- Website: http://www.mitmaro.ca/
-   Email: mmtiny@mitmaro.ca
- Purpose: Handles admin page requests
+      By: Tim Oram
+ Website: http://society.cs.mun.ca
+   Email: muncssociety@gmail.com
 ------------------------------------------------------------------------------*/
 class RequestPages extends Request {
 	

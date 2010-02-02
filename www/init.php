@@ -1,12 +1,11 @@
 <?php
 /*------------------------------------------------------------------------------
     File: www/init.php
- Project: MMTiny
+ Project: MUN Computer Science Society Website
  Version: 0.1.0
-      By: Tim Oram [t.oram@mitmaro.ca]
- Website: http://www.mitmaro.ca/
-   Email: mmtiny@mitmaro.ca
- Purpose: Initialization reference 
+      By: Tim Oram
+ Website: http://society.cs.mun.ca
+   Email: muncssociety@gmail.com
 ------------------------------------------------------------------------------*/
 // References the main init.php
 require dirname(__FILE__) . '/../php/init.php';

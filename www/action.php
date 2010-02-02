@@ -1,11 +1,11 @@
 <?php
 /*------------------------------------------------------------------------------
     File: www/action.php
- Project: MMTiny
+ Project: MUN Computer Science Society Website
  Version: 0.1.0
-      By: Tim Oram [t.oram@mitmaro.ca]
- Website: http://www.mitmaro.ca/
-   Email: mmtiny@mitmaro.ca
+      By: Tim Oram
+ Website: http://society.cs.mun.ca
+   Email: muncssociety@gmail.com
  Purpose: Request action handler, all request go through this script which will
           load the request handler for the action provided.
 ------------------------------------------------------------------------------*/
