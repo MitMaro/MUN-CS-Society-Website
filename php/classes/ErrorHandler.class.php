@@ -63,7 +63,7 @@ class ErrorHandler {
 	public function __destruct(){
 		if(count(self::$instance->errors) > 0){
 			if(self::$mail){
-				self::sendMail();
+				self::sendToMail();
 			}
 			if(self::$firebug){
 				self::sendToFirebug();
@@ -227,7 +227,7 @@ class ErrorHandler {
 			$message .= '<hr style="border:0;height:1px;background:#666;"/>';
 		}
 		$message .='</p>';
-		mail(self::$mail_to, self::$mail_subject, $debug, $headers);
+		mail(self::$mail_to, self::$mail_subject, $message, $headers);
 	}
 	
 	private static function sendToFirebug(){
