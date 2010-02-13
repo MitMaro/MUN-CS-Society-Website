@@ -10,7 +10,7 @@
 
 class DBAdminPermissions {
 	public static function getUsers(){
-		$qs = 'SELECT`id`,`username` FROM `' . DB::getPrefix() . 'admin_users` ORDER BY `username`';
+		$qs = 'SELECT`id`,`username` FROM `' . DB::getPrefix() . 'users` ORDER BY `username`';
 		return DB::fetchAll($qs);
 	}
 
