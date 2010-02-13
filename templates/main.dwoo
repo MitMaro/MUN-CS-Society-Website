@@ -1,6 +1,6 @@
 {include 'pieces/doctype'}
 <head>
-<title>{$.config.title}</title>
+<title>{$.config.title} :: {$page.title}</title>
 {include 'pieces/head'}
 </head>
 <body>
