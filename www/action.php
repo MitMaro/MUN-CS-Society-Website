@@ -17,6 +17,7 @@ if(isset($_GET['_action']) && preg_match('/^[a-zA-Z]+$/', $_GET['_action'])) {
 	$class = 'Request' . ucfirst($action);
 	if(isset($_GET['_admin'])){
 		$path = 'php/actions/admin/' . $action . '.php';
+		$action = 'admin/' . $action;
 	}
 	else{
 		$path = 'php/actions/' . $action . '.php';
@@ -27,10 +28,10 @@ if(isset($_GET['_action']) && preg_match('/^[a-zA-Z]+$/', $_GET['_action'])) {
 	
 		$request = new $class;
 	
-		if(!User::verifyAccess(Session::getUser('id', false), $action)){
+		if(!User::verifyAccess($action . '/' . $command)){
 			$request->setStatus(Request::UNAUTHORIZED);
 		}
-		else{
+		else {
 			$request->process($command);
 		}
 	}
@@ -45,7 +46,7 @@ else {
 	$action = 'none';
 	$request->setStatus(Request::ACTION_REQUIRED);
 }
-if(Request::isAjaxRequest() || true){
+if(Request::isAjaxRequest()){
 	header('Content-type: application/json');
 	header('Cache-Control: no-cache');
 	header('Pragma: no-cache');
@@ -55,8 +56,8 @@ else{
 	Session::setOnce('action', $action);
 	Session::setOnce('status', $request->getStatus());
 	Session::setOnce('data', $request->getData());
-	if(isset($_GET['request_page'])){
-		$redirect = $cfg['site_path'] . $_GET['request_page'];
+	if(isset($_REQUEST['request_page'])){
+		$redirect = $cfg['site_path'] . trim($_REQUEST['request_page'], '/');
 	}
 	elseif(isset($_SERVER['HTTP_REFERER'])){
 		$redirect = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
