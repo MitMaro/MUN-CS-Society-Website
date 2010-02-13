@@ -158,9 +158,6 @@ class Request{
 
 	// writes the request data structure as a json string
 	public function json(){
-		FB::log(array('status' => $this->status,
-		                  'message' => $this->status_lookup[$this->status],
-		                  'data' => $this->data));
 		return json_encode(array('status' => $this->status,
 		                  'message' => $this->status_lookup[$this->status],
 		                  'data' => $this->data));
