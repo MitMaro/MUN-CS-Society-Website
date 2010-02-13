@@ -3,6 +3,9 @@
 	
 	<target name="init" depends="-load.properties" description="Some basic itilization">
 		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.dir}/css"/>
+		<mkdir dir="${build.dir}/admin"/>
+		<mkdir dir="${build.dir}/admin/css"/>
 	</target>
 
 	<target name="-load.properties" description="Some basic itilization">
@@ -12,15 +15,27 @@
 	<target name="build" depends="init"
             description="Do a full build of all components">
 		
+		<!-- Less -->
 		<apply executable="lessc" parallel="false">
 			<fileset dir="${src.dir}/less" includes="*.less"/>
 			<srcfile />
-			<mapper type="glob" from="*.less" to="${basedir}/${build.dir}/*.css" />
+			<mapper type="glob" from="*.less" to="${basedir}/${build.dir}/css/*.css" />
 			<targetfile />
 		</apply>
-				
 		<copy todir="${www.css}" verbose="true">
-			<fileset dir="${build.dir}" includes="*.css"/>
+			<fileset dir="${build.dir}/css" includes="*.css"/>
+			<mapper type="glob" from="*.css" to="*.css"/>
+		</copy>
+		
+		<!-- Less Admin -->
+		<apply executable="lessc" parallel="false">
+			<fileset dir="${src.dir}/less/admin" includes="*.less"/>
+			<srcfile />
+			<mapper type="glob" from="*.less" to="${basedir}/${build.dir}/admin/css/*.css" />
+			<targetfile />
+		</apply>
+		<copy todir="${www.admin.css}" verbose="true">
+			<fileset dir="${build.dir}/admin/css" includes="*.css"/>
 			<mapper type="glob" from="*.css" to="*.css"/>
 		</copy>
 	</target>
