@@ -25,7 +25,8 @@ date_default_timezone_set($cfg['timezone']);
 /*| class Loading |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|*/
 // load these now because they are used in this file there will be a small speed
 // increase from not using the autoloader
-///require 'php/classes/db/DB.class.php';
+require 'php/classes/db/DB.class.php';
+require 'php/classes/db/drivers/MySql.php';
 require 'php/classes/ErrorHandler.class.php';
 require 'php/classes/Session.class.php';
 require $cfg['template_engine_path'];
@@ -39,9 +40,8 @@ function class_loader($class){
 	if (file_exists($cfg['project_root'] . "php/classes/$class.class.php")) {
 		require "php/classes/$class.class.php";
 	}
-	// the database driver
-	else if(substr($class, -9) == '_DBDriver'){
-		require 'php/classes/db/drivers/' . substr($class, 0, strlen($class) - 9) . '.php';
+	else if(substr($class, 0, 4) != 'Dwoo' && substr($class, -4) == 'Data'){
+		require "php/dwoo/$class.php";
 	}
 	// the database classes
 	else if(substr($class, 0, 2) == 'DB'){
@@ -61,7 +61,7 @@ ErrorHandler::setFirebugSettings($cfg['error_firebug'], $cfg['error_firebug_coll
 
 /*| database |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|*/
 
-/*///try{
+try{
 	DB::construct($cfg['db']['engine']);
 	DB::connect($cfg['db']['host'], $cfg['db']['username'], $cfg['db']['password'], $cfg['db']['port']);
 	DB::selectDB($cfg['db']['database']);
@@ -73,7 +73,7 @@ catch(DBError $e){
 	trigger_error("Database Connection Error: " . $e->getMessage());
 	echo "Database Connection Error. Reload the page to try again.";
 	exit;
-}*///
+}
 
 /*| template engine |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|*/
 Session::init($cfg['guid']);
@@ -94,11 +94,13 @@ if(get_magic_quotes_gpc()) {
 
 /*| debug |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|*/
 
-if($cfg['debug'] && trim($cfg['firephp_path']) != ''){
-	require_once $cfg['firephp_path'];
-	// dump some common used info to firephp
-	FB::dump('Get', $_GET);
-	FB::dump('Post', $_POST);
-	FB::dump('Cookie', $_COOKIE);
-	if(isset($_SESSION)) FB::dump('Session', $_SESSION);
+if($cfg['debug']){
+	if(trim($cfg['firephp_path']) != ''){
+		require_once $cfg['firephp_path'];
+		// dump some common used info to firephp
+		FB::dump('Get', $_GET);
+		FB::dump('Post', $_POST);
+		FB::dump('Cookie', $_COOKIE);
+		if(isset($_SESSION)) FB::dump('Session', $_SESSION);
+	}
 }
