@@ -117,7 +117,7 @@ class DwooEngine extends Dwoo {
 	
 	public function __construct($template_dir = null){
 		global $cfg;
-		$this->globals['SELF'] = $_SERVER['PHP_SELF'];
+		$this->globals['self'] = $_SERVER['PHP_SELF'];
 		$this->globals['config'] = $cfg;
 		$this->template_dir = $template_dir;
 	}
