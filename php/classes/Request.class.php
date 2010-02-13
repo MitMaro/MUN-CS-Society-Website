@@ -59,12 +59,12 @@ class Request{
 	
 	// returns the status information
 	public final function getStatus(){
-		return array('code' => $this->status, 'message' => $status_lookup[$this->status]);
+		return array('code' => $this->status, 'message' => $this->status_lookup[$this->status]);
 	}
 	
 	// returns the data information
 	public final function getData(){
-		return $data;
+		return $this->data;
 	}
 	
 	public function useParam($index){
@@ -147,9 +147,11 @@ class Request{
 			$this->setStatus(self::INVALID_DATA);
 		}
 		catch(DBConnectionError $e){
+			trigger_error($e->getMessage(), E_USER_ERROR);
 			$this->setStatus(self::MYSQL_OFFLINE);
 		}
 		catch(DBError $e){
+			trigger_error($e->getMessage(), E_USER_ERROR);
 			$this->setStatus(self::MYSQL_ERROR);
 		}
 	}
