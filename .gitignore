@@ -3,3 +3,4 @@
 /templates/cache/*
 /templates/compiled/*
 /php/config.php
+/www/admin/css/*
