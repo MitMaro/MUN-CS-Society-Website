@@ -1,0 +1,38 @@
+{include 'pieces/doctype'}
+<head>
+<title>{$.config.title} Admin Login</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="title" content="{$.config.title}" />
+<meta name="author" content="{$.config.author}, {$.config.developer}" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.0r4/build/reset-fonts/reset-fonts.css"/>
+<link rel="stylesheet" type="text/css" href="{$.config.site_path}admin/css/login.css"/>
+<link rel="stylesheet" type="text/css" href="{$.config.site_path}admin/css/common.css"/>
+</head>
+<body>
+{include('admin/pieces/nojs_warning')}
+<div id='page'>
+	<div class='title'>{$.config.name} Admin Login</div>
+	{foreach $site.messages msg}
+		<p class='message'>{$msg}</p>
+	{/foreach}
+	<p id="error" class='error{if !($request.data.logged_in === false)} hidden{/if}'>Username and Password do not match.</p>
+	<form id="login" action="{$.config.site_path}action/admin/login/login" method="post">
+		<p><label for="username">username:</label><input type='text' id="username" name="username"/></p>
+		<p><label for="password">password:</label><input type='password' id="password" name="password" /></p>
+		<p class='submit'><input id="login_button" type="submit" value="Login"/></p>
+	</form>
+	<p id='success'>
+		Login Successful. You will now be redirected.
+	</p>
+	<div id='loader'>
+		<img src='{$.config.site_path}images/loaders/loader_button.gif' alt="Logging In"/>
+	</div>
+</div>
+<script type="text/javascript" src="{$.config.site_path}js/mootools.js"></script>
+<script type="text/javascript" src="{$.config.site_path}js/mootools-more.js"></script>
+<script type="text/javascript" src="{$.config.site_path}js/mootools-formcheck.js"></script>
+<script type="text/javascript" src="{$.config.site_path}js/mootools-notimoo.js"></script>
+<script type="text/javascript" src="{$.config.site_path}admin/js/site.js"></script>
+<script type="text/javascript" src="{$.config.site_path}admin/js/login.js"></script>
+</body>
+</html>
