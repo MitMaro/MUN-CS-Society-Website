@@ -30,4 +30,24 @@ var Site = {
 			customClass: "notimoo_success"
 		});
 	},
+	tableHoverEnter: function(e){
+		var el;
+		if(e.tagName != "tr") {
+			el = e.target.getParent("tr");
+		}
+		else {
+			el = e.target;
+		}
+		el.addClass("over");
+	},
+	tableHoverExit: function(e){
+		var el;
+		if(e.tagName != "tr") {
+			el = e.target.getParent("tr");
+		}
+		else {
+			el = e.target;
+		}
+		el.removeClass("over");
+	}
 };
