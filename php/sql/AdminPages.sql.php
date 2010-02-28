@@ -22,8 +22,8 @@ class DBAdminPages {
 	}
 	public static function add($id, $title, $url, $public){
 
-		$title = DB::makeSafe($title);
-		$url = DB::makeSafe($url);
+		DB::makeSafe($title);
+		DB::makeSafe($url);
 		
 		if(($order = self::getHighestOrder()) === false){
 			$order = -1;
@@ -39,8 +39,8 @@ class DBAdminPages {
 	
 	public static function update($id, $title, $url){
 		
-		$title = DB::makeSafe($title);
-		$url = DB::makeSafe($url);
+		DB::makeSafe($title);
+		DB::makeSafe($url);
 		
 		$qs = 'UPDATE`' . DB::getPrefix() . 'admin_pages`'.
 		      "SET `title` = '$title', `url` = '$url' WHERE `id` = '$id'";

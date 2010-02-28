@@ -23,6 +23,9 @@ class DBAdminPermissions {
 	}
 
 	public static function update($user, $page, $allowed){
+		DB::makeSafe($user);
+		DB::makeSafe($page);
+		DB::makeSafe($allowed);
 		$qs = 'INSERT INTO  `' . DB::getPrefix() . 'admin_permissions`' .
 			"(`page_id`, `user_id`, `allowed`) VALUES ('$page', '$user', '$allowed')".
 			"ON DUPLICATE KEY UPDATE `allowed` = '$allowed'";
