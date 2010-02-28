@@ -1,0 +1,9 @@
+<div id='header'>
+	<div class='site'>{$.config.name} Admin</div>
+	<div class='user'>
+		<span id='usersname'>Welcome {$user.name}</span> |
+		<img id="login_loader" class='hidden' src='{$.config.site_path}images/loaders/loader_small.gif' alt='Logging Out'/>
+		<a id='logout' href='{$.config.site_path}action/admin/login/logout'>Logout</a>
+	</div>
+	<div class='title'><h1>{$page.title}</h1></div>
+</div>

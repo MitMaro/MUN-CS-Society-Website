@@ -1,0 +1,12 @@
+<div id='nav' class="equalheight">
+	<div class='body'>
+		<div class='title'>Admin Menu</div>
+		<ul>
+			{foreach $nav n}
+			<li><a href="{$.config.site_path}admin/{$n['name']}">{$n['title']}</a></li>
+			{else}
+			<li><a href="{$.config.site_path}admin/">No Access</a></li>
+			{/foreach}
+		</ul>
+	</div>
+</div>

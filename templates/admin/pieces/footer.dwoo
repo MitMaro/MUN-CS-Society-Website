@@ -1,0 +1,5 @@
+<div id='footer'>
+	<div class='version'>{$.config.version}</div>
+	<div class='gt'>Generation Time: {math "(a-$.server.SCRIPT_TIME_MICRO)" "%01.4f" a=microtime(true)}s</div>
+	<div class='cr'>{$.config.copyright}</div>
+</div>

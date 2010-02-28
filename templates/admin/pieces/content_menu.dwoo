@@ -1,0 +1,3 @@
+<div class='menu hidden'>
+{if !$noadd}<div class="add"><img src="{$.config.site_path}images/icons/add.png" alt="Add Item"/>Add New</div>{/if}
+</div>
