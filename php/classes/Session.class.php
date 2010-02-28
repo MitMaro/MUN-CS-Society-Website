@@ -46,14 +46,14 @@ class Session {
 		$_SESSION[self::$guid] = array();		
 	}
 
-	 // sets a one time variable, this variable will stick around for one extra
-	 // session only (ie. the next page view)
+	// sets a one time variable, this variable will stick around for one extra
+	// session only (ie. the next page view)
 	public static function setOnce($key, $value){
 		self::init();
 		self::$instance->once_variables[$key] = $value;
 	}
-	
-	 // gets a variable saved as a one time variable in the previous script run
+
+	// gets a variable saved as a one time variable in the previous script run
 	public static function getOnce($key, $default = NULL){
 		self::init();
 		// handle default values
@@ -64,7 +64,7 @@ class Session {
 		return $_SESSION[self::$guid]['__once__'][$key];
 	}
 	
-	// pushes this sessions once variables over to the next
+	// pushes this sessions once variables over to the next session
 	public static function pushOnce(){
 		self::init();
 		if(isset($_SESSION[self::$guid]['__once__'])){
@@ -74,10 +74,28 @@ class Session {
 		}
 	}
 	
-	 // Sets a user setting, this can be used for saving individual page settings
-	 // and preferences. The $id is for grouping settings, passing a page id is
-	 // a good example. These settings will stay around till the session is 
-	 // destroyed or reset using the resetSettings method.
+	// add to the special once variables for messages
+	public static function addMessage($message){
+		self::init();
+		if(!isset(self::$instance->once_variables['__messages__'])){
+			self::$instance->once_variables['__messages__'] = array();
+		}
+		self::$instance->once_variables['__messages__'][] = $message;
+	}
+	
+	// return the list of messages
+	public static function getMessages(){
+		self::init();
+		if(!isset($_SESSION[self::$guid]['__once__']['__messages__'])){
+			return array();
+		}
+		return $_SESSION[self::$guid]['__once__']['__messages__'];
+	}
+	
+	// sets a user setting, this can be used for saving individual page settings
+	// and preferences. The $id is for grouping settings, passing a page id is
+	// a good example. These settings will stay around till the session is 
+	// destroyed or reset using the resetSettings method.
 	public static function setSetting($id, $key, $value){
 		self::init();
 		$_SESSION[self::$guid]['__settings__'][$id][$key] = $value;
@@ -99,8 +117,8 @@ class Session {
 	public static function resetSettings($page_id = NULL){
 		self::init();
 		// if a page id was given reset only that page
-		if(!is_null($id)){
-			$_SESSION[self::$guid]['__settings__'][$id] = array();
+		if(!is_null($page_id)){
+			$_SESSION[self::$guid]['__settings__'][$page_id] = array();
 		}
 		// if a page id was not give reset all page settings
 		else{
@@ -124,8 +142,7 @@ class Session {
 	// returns a user varaible
 	public static function getUser($key, $default = null){
 		self::init();
-		if(!is_null($default)
-		   && !isset($_SESSION[self::$guid]['__user__'][$key])){
+		if(!isset($_SESSION[self::$guid]['__user__'][$key])){
 			return $default;
 		}
 		return $_SESSION[self::$guid]['__user__'][$key];
