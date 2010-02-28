@@ -61,13 +61,18 @@ class ErrorHandler {
 	}
 	
 	public function __destruct(){
-		if(count(self::$instance->errors) > 0){
-			if(self::$mail){
-				self::sendToMail();
+		try{
+			if(count(self::$instance->errors) > 0){
+				if(self::$mail){
+					self::sendToMail();
+				}
+				if(self::$firebug){
+					self::sendToFirebug();
+				}
 			}
-			if(self::$firebug){
-				self::sendToFirebug();
-			}
+		}
+		catch(Exception $e){
+			echo "Uncaught Exception in Deconstructor. " . $e->getMessage();
 		}
 	}
 	
