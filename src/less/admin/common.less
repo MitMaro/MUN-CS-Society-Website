@@ -7,6 +7,10 @@
    Email: muncssociety@gmail.com
 ------------------------------------------------------------------------------*/
 
+@import "includes/forms";
+@import "includes/notimoo.less";
+@import "includes/formcheck.less";
+
 /* Global Styles */
 html {
 	background:#000 url(../../images/bg/main.jpg) repeat;
@@ -14,11 +18,16 @@ html {
 	color:#fff;
 }
 
+body {
+	font-family: Times, Times New Roman, FreeSerif, serif;
+}
+
+
 .hidden {
 	display:none;	
 }
 
-.nojs{
+.nojs {
 	color:#fff;
 	background:#AE0000;
 	text-align:center;
@@ -34,169 +43,7 @@ html {
 	top:0;
 }
 
-/* Input Styles */
-
-input[type='submit']{
-	border: 1px solid #999;
-	background:#000;
-	color:#fff;
-	font-size:93%;
+.nojs_pad {
+	padding-bottom:25px;
 }
 
-input[type="text"], input[type="password"]{
-	border: 1px solid #999;
-	background:#191919;
-	color:#fff;
-	font-size:93%;
-}
-
-input[type="text"].error, input[type="password"].error{
-	border:1px solid #900;
-}
-
-
-
-/* Notimoo */
-.notimoo {
-
-    /* Don't touch here */
-    position: absolute;
-    z-index: 999; /* There are some cases where you'll need to change this if you're currently using a greater one in your project*/
-    cursor: pointer;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-
-    /* Change this to fit your needs*/
-    padding:3px;
-    border: 2px;
-    border-style: solid;
-    border-color: #929292;
-    background: #000;
-    color: #FFFFFF;
-	
-	.title {
-		display:block;
-	    font-weight: bold;
-	    border-bottom: 1px solid;
-	}
-
-	.message {
-		margin: 5px 0;
-	}
-	
-	a {
-		color: #FFFFFF;
-	}
-}
-
-.notimoo_error {
-    border-color: #920000;
-    background: #000;
-    color: #FFFFFF;
-    
-    .title {
-	    border-bottom: 0px solid;
-	}
-	.message {
-		text-align:center;
-	}
-}
-
-.notimoo_success {
-    border-color: #009200;
-    background: #000;
-    color: #FFFFFF;
-    
-    .title {
-	    border-bottom: 0px solid;
-	}
-	.message {
-		text-align:center;
-	}
-}
-
-.notimoo_message {
-    .title {
-	    border-bottom: 0px solid;
-	}
-	.message {
-		text-align:center;
-	}
-}
-
-/* Form Check */
-.fc-tbx{
-	.tl{
-		background: url('../../images/mootools/formcheck/tl.png') no-repeat;
-	}
-	.t{
-	background: url('../../images/mootools/formcheck/t.png') repeat-x;
-	height: 16px;
-	}
-	.tr{
-		background: url('../../images/mootools/formcheck/tr.png') no-repeat;
-	}
-	.l{
-		background: url('../../images/mootools/formcheck/l.png') repeat-y;
-		width : 16px;
-	}
-	.r{
-		background: url('../../images/mootools/formcheck/r.png') repeat-y;
-		width: 16px;
-	}
-	.bl{
-		background: url('../../images/mootools/formcheck/bl.png') no-repeat;
-	}
-	.b{
-		background: url('../../images/mootools/formcheck/b.png') no-repeat;
-		height: 25px;
-	}
-	.br{
-		background: url('../../images/mootools/formcheck/br.png') no-repeat;
-	}
-	.c{
-		background: url('../../images/mootools/formcheck/c.png') repeat;
-	}
-	a.close {
-		float: right;
-		background: url('../../images/mootools/formcheck/close.png') no-repeat;
-		position: relative;
-		margin-left: 5px;
-		display: block;
-		width: 10px;
-		height: 10px;
-		cursor: pointer;
-	}
-	.err {
-		float: left;
-	}
-	p {
-		width : auto;
-		display: block;
-		font-size: 10px;
-		font-family: tahoma, verdana, "sans-serif";
-		margin : 0;
-		padding : 0;
-		border : 0;
-		color : #FFF;
-	}
-	
-	.ajax_loader {
-		background : url('../../images/mootools/formcheck/ajax-loader.gif') no-repeat center;
-		width : 200px;
-		height : 150px;
-	}
-}
-
-/* FormCheck validation div */
-
-.fc-error {
-	border : 1px solid #888;
-	margin-top : 5px;
-	background-color : #EAEAEA;
-
-	p {
-		margin : 5px;
-		color : #A00;
-	}
-}

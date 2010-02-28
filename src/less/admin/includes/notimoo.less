@@ -1,0 +1,75 @@
+/*------------------------------------------------------------------------------
+    File: src/less/admin/include/notimoo.less
+ Project: MUN Computer Science Society Website
+ Version: 0.1.0
+      By: Tim Oram
+ Website: http://society.cs.mun.ca
+   Email: muncssociety@gmail.com
+------------------------------------------------------------------------------*/
+
+.notimoo {
+
+    /* Don't touch here */
+    position: absolute;
+    z-index: 999; /* There are some cases where you'll need to change this if you're currently using a greater one in your project*/
+    cursor: pointer;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+
+    /* Change this to fit your needs*/
+    padding:3px;
+    border: 2px;
+    border-style: solid;
+    border-color: #929292;
+    background: #000;
+    color: #FFFFFF;
+	
+	.title {
+		display:block;
+	    font-weight: bold;
+	    border-bottom: 1px solid;
+	}
+
+	.message {
+		margin: 5px 0;
+	}
+	
+	a {
+		color: #FFFFFF;
+	}
+}
+
+.notimoo_error {
+    border-color: #920000;
+    background: #000;
+    color: #FFFFFF;
+    
+    .title {
+	    border-bottom: 0px solid;
+	}
+	.message {
+		text-align:center;
+	}
+}
+
+.notimoo_success {
+    border-color: #009200;
+    background: #000;
+    color: #FFFFFF;
+    
+    .title {
+	    border-bottom: 0px solid;
+	}
+	.message {
+		text-align:center;
+	}
+}
+
+.notimoo_message {
+    .title {
+	    border-bottom: 0px solid;
+	}
+	.message {
+		text-align:center;
+	}
+}
