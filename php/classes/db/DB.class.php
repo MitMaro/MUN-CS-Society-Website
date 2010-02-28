@@ -62,8 +62,8 @@ class DB {
 	}
 
 	// returns a string that is safe to use in the database
-	static public function makeSafe($str){
-		return self::$res->makeSafe($str);
+	static public function makeSafe(&$str){
+		self::$res->makeSafe($str);
 	}
 	
 	
@@ -114,7 +114,7 @@ abstract class DBDriver {
 	 // select a database
 	public abstract function selectDB($db_name);
 	// returns a string that is safe to use in the database
-	public abstract function makeSafe($str);
+	public abstract function makeSafe(&$str);
 	// performs a query and returns the result
 	public abstract function query($qs);
 	// returns a row of a query

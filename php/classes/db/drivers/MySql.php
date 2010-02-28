@@ -29,13 +29,12 @@ class MySql_DBDriver Extends DBDriver {
 	}
 
 	// returns a string that is safe to use in the database
-	public function makeSafe($str){
-		$safe = mysql_real_escape_string($str, $this->res);
-		if($safe === false){
+	public function makeSafe(&$str){
+		$str = mysql_real_escape_string($str, $this->res);
+		if($str === false){
 			$this->error();
 		}
 		$this->calls_count++;
-		return $safe;
 	}
 	
 	// performs a MySQL query and returns the result
