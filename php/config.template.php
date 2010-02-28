@@ -12,13 +12,14 @@
 $cfg = array();
 
 // application information
-$cfg['name'] = '';
-$cfg['version'] = '';
-$cfg['author'] = '';
-$cfg['developer'] = '';
-$cfg['title'] = '';
+$cfg['name'] = 'MUN CS Society';
+$cfg['version'] = '0.1.1';
+$cfg['author'] = 'MUN CS Society';
+$cfg['developer'] = 'Tim Oram';
+$cfg['title'] = 'Memorial University Computer Science Society';
 $cfg['copyright'] = 'Copyright ' . $cfg['developer'] . '; All Rights Reserved';
-$cfg['guid'] = '';
+$cfg['guid'] = '0760d47c-313d-4332-ae3c-09dece61947c';
+$cfg['password_seed'] = '';
 
 // path info
 $cfg['project_root'] = '/'; // absolute path
@@ -53,8 +54,8 @@ $cfg['error_show'] = false;
 $cfg['error_max_arg_length'] = 15;
 $cfg['error_mail'] = false;
 $cfg['error_mail_subject'] = $cfg['app_name'] . ' Error Report';
-$cfg['error_mail_to'] = 'errors@example.com';
-$cfg['error_mail_from'] = 'errors@example.com';
+$cfg['error_mail_to'] = '';
+$cfg['error_mail_from'] = 'errors@society.cs.mun.ca';
 $cfg['error_log'] = false;
 // check php manual for error_log function for information on the next settings
 $cfg['error_log_type'] = 3;
@@ -63,4 +64,4 @@ $cfg['error_firebug'] = false;
 $cfg['error_firebug_collapse'] = false;
 
 // time zone
-$cfg['timezone'] = '';
+$cfg['timezone'] = 'America/St_Johns';
