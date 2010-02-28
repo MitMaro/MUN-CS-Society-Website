@@ -8,14 +8,4 @@
    Email: muncssociety@gmail.com
 ------------------------------------------------------------------------------*/
 class User extends UserBase {
-	public static function verifyAccess($action){
-		if(DBCommon::checkActionAccess($action)) return true;
-		if(self::isLogged()){
-			$user_id = Session::getUser('id');
-			if(DBCommon::superUser($user_id) || DBCommon::checkUserAccess($user_id, $action)){
-				return true;
-			}
-		}
-		return false;
-	}
 }
