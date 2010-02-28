@@ -1,0 +1,7 @@
+ <div class='section'>
+	{include admin/pieces/content_menu noadd=true}
+	<div class='title'><h2>Access Denied</h2></div>
+	<div class='body'>
+		<p>You do not have permission to view this page. Please try another.
+	</div>
+</div>

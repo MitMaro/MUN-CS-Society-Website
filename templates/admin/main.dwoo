@@ -1,0 +1,38 @@
+{include 'pieces/doctype'}
+<head>
+<title>{$.config.title}</title>
+{include 'admin/pieces/head'}
+<link rel="stylesheet" type="text/css" href="{$.config.site_path}admin/css/main.css"/>
+{if $page.css}<link rel="stylesheet" type="text/css" href="{$.config.site_path}admin/css/{$page.css}.css"/>{/if}
+</head>
+<body>
+{include "admin/pieces/nojs_warning"}
+<div id='doc'>
+	{include 'admin/pieces/header'}
+	{include 'admin/pieces/nav'}
+	<div id="bd">
+		{if $site.messages}
+			<div class="section">
+				<div class="title">Messages</div>
+				<div class="body">
+					<ol class="messages">
+						{foreach $site.messages msg}
+							<li>{$msg}</li>
+						{/foreach}
+					</ol>
+				</div>
+			</div>
+		{/if}
+		{$page.content}
+	</div>
+	{include 'admin/pieces/footer'}
+</div>
+<script type="text/javascript" src="{$.config.site_path}js/mootools.js"></script>
+<script type="text/javascript" src="{$.config.site_path}js/mootools-more.js"></script>
+<script type="text/javascript" src="{$.config.site_path}js/mootools-formcheck.js"></script>
+<script type="text/javascript" src="{$.config.site_path}js/mootools-notimoo.js"></script>
+<script type="text/javascript" src="{$.config.site_path}admin/js/site.js"></script>
+<script type="text/javascript" src="{$.config.site_path}admin/js/admin.js"></script>
+{if $page.script}<script type="text/javascript" src="{$.config.site_path}admin/js/{$page.script}.js"></script>{/if}
+</body>
+</html>

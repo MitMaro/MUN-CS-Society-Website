@@ -1,0 +1,307 @@
+/*------------------------------------------------------------------------------
+    File: src/less/admin/main.less
+ Project: MUN Computer Science Society Website
+ Version: 0.1.0
+      By: Tim Oram
+ Website: http://society.cs.mun.ca
+   Email: muncssociety@gmail.com
+------------------------------------------------------------------------------*/
+
+@width: 1100px;
+@nav_width: 200px;
+
+#doc{
+	width:@width;
+	margin:5px auto 15px auto;
+	border:1px solid #fff;
+	display:table;
+}
+
+#header {
+	background:#fff url(../../images/bg/narrow_fade.png) repeat-x;
+	width: @width - 5 * 2; // 10px padding 
+	border-bottom:1px solid #969696;
+	margin:auto;
+	padding:2px 5px;
+	color:#fff;
+	font-size:123.1%;
+	div.site{
+		float:left;
+		text-align:left;
+		padding-left:5px;
+		width:@width / 4 - 20;
+	}
+	div.title{
+		text-align:center;
+		margin:auto;
+		width:@width / 2 - 20;
+	}
+	
+	div.user{
+		float:right;
+		text-align:right;
+		padding-right:5px;
+		width:@width / 4 - 20;
+	}
+	a{
+		color:#fff;
+		text-decoration:none;	
+	}
+}
+
+
+
+
+#nav{
+	float:left;
+	background:#141414 url(../../images/bg/side_nav.jpg) repeat;
+	color:#fff;
+	width:200px;
+	border-right:1px solid #969696;
+	overflow:hidden;
+	padding-top:10px;
+	padding-bottom:15px;
+	div.title {
+		font-size:108%;
+		font-weight:bold;
+		font-variant:small-caps;
+		text-align:center;
+		margin-top:5px;
+		border-bottom:1px solid #555;
+	}
+	div.body {
+		ul {
+			margin:0;
+			list-style-type:none;
+			padding:5px 0 15px 0;
+			li {
+				font-size:108%;
+				letter-spacing:0.1em;
+				a{
+					color:#fff;
+					display:block;
+					padding:1px 0 1px 15px;
+					text-decoration:none;
+					outline:0px;
+					:hover{
+						background:#222;
+						padding:0 0 0 15px;
+						border-top:1px solid #666;
+						border-bottom:1px solid #666;
+					}
+				}
+			}
+		}
+	}
+}
+
+#bd {
+	margin-left: @nav_width + 3;
+	a {
+		color:#666;
+		text-decoration:none;	
+	 	:hover{
+			color:#999;
+		}
+	}
+
+	div.section {
+		border:1px solid #000;	
+		margin:10px 10px 0 10px;
+		background:#fff url(../../images/bg/content.jpg) repeat;
+		padding-bottom:15px;
+		clear:right;
+		color:#000;
+		div.title {
+			margin:1px 1px 15px 1px;
+			background:#000 url(../../images/bg/section_title.jpg) repeat bottom center;
+			color:#fff;
+			padding:2px 15px;
+			font-size:123.1%;
+			font-variant:small-caps;
+		}
+		.menu {
+			margin:5px 15px 0 0;
+			color:#fff;
+			float:right;
+			text-align:right;
+			font-size:100%;
+			font-variant:small-caps;
+			img {
+				vertical-align:text-bottom;
+				margin-left:10px;
+			}
+		}
+
+		p {
+			padding:3px 10px;
+			font-size:116%;
+			text-indent:25px;
+		}
+		
+		ol.messages {
+			margin:5px 0 5px 25px;
+			padding:0;
+			li {
+				font-size:116%;
+				font-weight:bold;
+				list-style: none;
+				padding:1px 0 2px 0;
+			}
+		}
+		
+		div.left {
+			width: (@width - @nav_width) / 2 - 20;
+			float: left;
+		}
+		
+		div.right {
+			width: (@width - @nav_width) / 2 - 20;
+			margin-left: (@width - @nav_width) / 2 - 15;
+		}
+		
+		fieldset {
+			margin: 0 10px 25px 10px;
+			border:1px solid #999;
+			padding-bottom:5px;
+			legend {
+				font-weight:bold;
+				font-size:116%;
+				padding:2px 5px;
+			}
+			ol {
+				margin: 0;
+				padding: 0;
+				
+				li {
+					list-style: none;
+					margin-bottom:3px;
+					padding:1px 0 3px 0;
+					text-align:center;
+				}
+				
+				li.success {
+					color:#003300;
+					font-size:93%;
+					display:none;
+					text-align:right;
+					padding:15px 15px 0 0;
+					
+					span.saved {
+						padding:3px 10px;
+						border:1px solid #000;
+						background:#ccc;
+						font-family:arial,helvetica,clean,sans-serif;
+					}
+				}
+				
+				li.error{
+					color:#CC0000;
+					display:none;
+					text-align:right;
+					padding-right:15px;
+				}
+				
+				li.loader {
+					padding:10px 10px 0 0;
+					text-align:right;
+					display:none;
+					img {
+						background:#ccc;
+						border: 1px solid #000;
+					}
+				}
+				
+				li.submit {
+					text-align:right;
+					padding:10px 10px 0 0;
+				}
+			}
+			
+			label {
+				width: 120px;
+				display: inline-block;
+				font-size:116%;
+				text-align:right;
+				padding-right:5px;
+				:after {
+					content: ":";
+				}
+			}
+			input[type="text"], input[type="password"]{
+				margin:auto;
+				width: 250px;
+			}
+			
+			input[type="submit"] {
+				padding:2px 10px;
+			}
+		}
+		table {
+			width:100%;
+			tbody tr {
+				border-top:1px solid #000;
+				border-bottom:1px solid #000;
+			}
+			th {
+				font-weight:bold;
+				font-size:116%;
+			}
+
+			td {
+				font-size:116%;
+				background-color:#FFF;
+			}
+			
+			tr.even td {
+				background: #F0F0F0;
+			}
+			
+			tr.over td {
+				background: #E0E0E0;
+			}
+			
+			td.cmd {
+				text-align:center;
+				width:75px;
+			}
+			th.cmd {
+				text-align:center;
+				width:75px;
+			}
+			
+			
+		}
+	}
+}
+
+#footer{
+	width:@width;
+	background:#000;
+	color:#ccc;
+	border-top:1px solid #969696;
+	margin:auto;
+	padding:3px 0;
+	font-family:Lucida Console, Monaco, monospace;
+	background:#000 url(../../images/bg/narrow_fade.png) repeat-x bottom;
+	height:13px;
+	font-size:77%;
+	clear:both;
+	div.version{
+		float:left;
+		width:@width / 4 - 20;
+		padding-left:5px;
+	}
+	div.cr{
+		text-align:center;
+		width:@width / 2 - 20;
+		margin:auto;
+	}
+	div.gt{
+		float:right;
+		width:@width / 4 - 20;
+		text-align:right;
+		padding-right:5px;
+	}
+}
+
