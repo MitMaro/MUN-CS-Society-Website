@@ -25,7 +25,7 @@ else {
 	$action = new Action('admin/view/' . $page);	
 
 	$tpl = TemplateEngine::templateFromFile('admin/main');
-	if($action->isValid() && !TemplateEngine::templateExists('admin/pages/' . $page)){
+	if(!$action->isValid() && !TemplateEngine::templateExists('admin/pages/' . $page)){
 		$data->assign('page', array(
 			'title' => 'Page Not Found',
 			'content' => TemplateEngine::get(TemplateEngine::templateFromFile('admin/special/not_found'))
