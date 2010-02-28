@@ -53,6 +53,13 @@ class TemplateEngine {
 		}
 	}
 
+	
+	// check if a template exists
+	public static function templateExists($name){
+		return file_exists(self::$template_dir . $name . '.dwoo');
+	}
+	
+	
 	// create a template from a template file name
 	public static function templateFromFile($name, $cache_time = null,
 	                                      $cache_id = null, $compile_id = null){
@@ -75,7 +82,7 @@ class TemplateEngine {
 		return new Dwoo_Template_File($file, $cache_time, $cache_id,
 		                              $compile_id);
 	}
-
+	
 	// create a template from a template as a string, great for loading
 	// templates from a database
 	public static function templateFromString($template, $cache_time = null,
