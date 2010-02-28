@@ -15,5 +15,8 @@ class BaseData extends Dwoo_Data {
 			'status' => Session::getOnce('status', false),
 			'data' => Session::getOnce('data', false)
 		));
+		$this->assign('site', array(
+			'messages' => Session::getMessages()
+		));
 	}
 }
