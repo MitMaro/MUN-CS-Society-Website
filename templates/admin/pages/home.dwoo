@@ -1,0 +1,108 @@
+ <div class='section'>
+	{include admin/pieces/content_menu noadd=true}
+	<div class='title'><h2>User Control Panel</h2></div>
+	<div class='body'>
+		<div class="columns">
+			<div class="left">
+				<form id="action_update" action="{$.config.site_path}action/user/update" method="post">
+					<fieldset>
+						<input type="hidden" name="request_page" value="{$.config.site_path}admin/home" />
+						<legend>User Details</legend>
+						<ol>
+							<li class="error">
+								Unknown Error Occured
+							</li>
+							<li>
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" value="{$user.name}" />
+							</li>
+							<li>
+								<label for="email">Email</label>
+								<input type="text" name="email" id="email" value="{$user.email}" />
+							</li>
+							<li class="submit">
+								<input type="submit" value="Update" />
+							</li>
+							<li class="success">
+								<span class="saved">Saved</span>
+							</li>
+							<li class="loader">
+								<img src='{$.config.site_path}images/loaders/loader_button.gif' alt="Proccessing"/>
+							</li>
+						</ol>
+					</fieldset>
+				</form>
+				<form id="action_password" action="{$.config.site_path}action/user/password" method="post">
+					<fieldset>
+						<input type="hidden" name="request_page" value="{$.config.site_path}admin/home" />
+						<legend>Change Password</legend>
+						<ol>
+							<li class="error">
+								Unknown Error Occured
+							</li>
+							<li>
+								<label for="password">Old Password</label>
+								<input type="password" name="password" id="password" />
+							</li>
+							<li>
+								<label for="new_password">New Password</label>
+								<input type="password" name="new_password" id="new_password" />
+							</li>
+							<li>
+								<label for="confirm_password">Confirm Password</label>
+								<input type="password" name="confirm_password" id="confirm_password" />
+							</li>
+							<li class="submit">
+								<input type="submit" value="Change Password" />
+							</li>
+							<li class="success">
+								<span class="saved">Saved</span>
+							</li>
+							<li class="loader">
+								<img src='{$.config.site_path}images/loaders/loader_button.gif' alt="Proccessing"/>
+							</li>
+						</ol>
+					</fieldset>
+				</form>
+			</div>
+			<div class="right">
+				<fieldset>
+					<legend>Your Permissions</legend>
+					<table class="zebraify">
+						<thead><tr><th/><th style="width:300px;">Action</th><th class="cmd">Granted</th><th/></tr></thead>
+						<tbody>
+							{foreach $permissions perm}
+							<tr>
+								<td/>
+								<td>{$perm.name}</td>
+								<td class="cmd">
+								{if $perm.allowed}
+									<img src="{$.config.site_path}images/icons/check.gif" alt="Permissions Granted" />
+								{else}
+									<img src="{$.config.site_path}images/icons/x.gif" alt="Permissions Not Granted" />
+								{/if}
+								</td>
+								<td/>
+							</tr>
+							{else}
+								<tr>
+									<td/>
+									<td>All Actions</td>
+									<td class="cmd">
+									{* check for all permissions granted *}
+									{if $permissions === true}
+										<img src="{$.config.site_path}images/icons/check.gif" alt="Permissions Granted" />
+									{else}
+										<img src="{$.config.site_path}images/icons/x.gif" alt="Permissions Not Granted" />
+									{/if}
+									</td>
+									<td/>
+								</tr>
+							{/foreach}
+						</tbody>
+					</table>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+</div>
