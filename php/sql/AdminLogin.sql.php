@@ -10,7 +10,7 @@
 
 class DBAdminLogin {
 	public static function getUserSeed($username){
-		$username = DB::makeSafe($username);
+		DB::makeSafe($username);
 		$qs = 'SELECT `seed` FROM `' . DB::getPrefix() . 'users`'.
 		      "WHERE `username` = '$username' LIMIT 1";
 		$result = DB::fetchrow($qs);
@@ -21,9 +21,9 @@ class DBAdminLogin {
 	}
 	
 	public static function checkLogin($username, $password){
-		$password = DB::makeSafe($password);
-		$username = DB::makeSafe($username);
-		$qs = 'SELECT `id`, `username`, `name`, `email` FROM `'. DB::getPrefix() . 'users`'.
+		DB::makeSafe($password);
+		DB::makeSafe($username);
+		$qs = 'SELECT `id`, `username`, `name`, `email`, `group` FROM `'. DB::getPrefix() . 'users`'.
 		      "WHERE `username` = '$username' AND `password` = '$password'";
 		$result = DB::fetchRow($qs);
 		if(isset($result['id'])){
